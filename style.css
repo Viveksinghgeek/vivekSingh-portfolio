@@ -1,0 +1,374 @@
+/* General Styling */
+:root {
+    --primary-color: #007bff; /* Example blue */
+    --secondary-color: #6c757d; /* Example gray */
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #dee2e6;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade of primary */
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: var(--card-bg);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar .nav-links li {
+    margin-left: 25px;
+}
+
+.navbar .nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('About\ Me.jpg') no-repeat center center/cover; /* Replace with your hero image */
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Adjust as needed */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.hero-content .title {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+.hero-content .short-line {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #f0f0f0;
+}
+
+/* --- About Me --- */
+.about-section {
+    padding: 80px 0;
+    background-color: var(--card-bg);
+    /* Removed text-align: center from here, as the content is now handled by flexbox */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.about-section h2 {
+    text-align: center; /* Keep the heading centered */
+    margin-bottom: 40px; /* Add some space below the heading */
+}
+
+.about-content {
+    display: flex; /* Enables Flexbox layout */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line on smaller screens */
+    align-items: center; /* Vertically aligns items in the center */
+    justify-content: center; /* Horizontally centers content when space allows */
+    gap: 50px; /* Space between the image and the text */
+    max-width: 1400px; /* Max width for the content block */
+    margin: 0 auto; /* Center the content block within its section */
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.about-image {
+    flex: 0 0 auto; /* Prevent image from growing/shrinking too much */
+    max-width: 450px; /* Max width for the image container */
+    text-align: center; /* Center the image if its container is larger */
+}
+
+.about-image img {
+    width: 100%; /* Make the image fill its container */
+    height: auto;
+    max-height: 350px; /* Limit max height if image is very tall */
+    border-radius: 8px; /* Slightly rounded corners for the image */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Soft shadow for depth */
+    display: block; /* Remove extra space below image */
+}
+
+.about-text {
+    flex: 1; /* Allows text to take up remaining space */
+    min-width: 300px; /* Minimum width before text wraps below the image */
+    text-align: left; /* Align text content to the left within its column */
+    line-height: 1.8; /* Improve readability */
+    font-size: 1.1em;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Stack items vertically on small screens */
+        gap: 30px; /* Reduce gap when stacked */
+    }
+    .about-image {
+        max-width: 250px; /* Make image slightly smaller on mobile */
+    }
+    .about-text {
+        min-width: unset; /* Remove min-width when stacking */
+        width: 100%; /* Text takes full width */
+        text-align: center; /* Center text on mobile if desired, or keep left */
+    }
+}
+/* ... (previous CSS rules) ... */
+
+
+/* --- Skills Section --- */
+.skills-section {
+    padding: 80px 0;
+    background-color: var(--bg-color);
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+}
+
+.skill-item {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-item i {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.skill-item span {
+    display: block;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* --- Projects Section --- */
+.projects-section {
+    padding: 80px 0;
+    background-color: var(--card-bg);
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
+}
+
+.project-card {
+    background-color: var(--bg-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.project-card p {
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+.project-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #0056b3;
+}
+
+/* --- Resume Button --- */
+.resume-section {
+    padding: 60px 0;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.resume-section h2 {
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    padding: 80px 0;
+    background-color: var(--card-bg);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto 0 auto;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer .social-links {
+    margin-bottom: 20px;
+}
+
+.footer .social-links a {
+    color: white;
+    font-size: 1.8em;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-links a:hover {
+    color: #f0f0f0;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
